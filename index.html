@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usman Portfolio</title>
+    <!-- <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"> -->
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+    <link rel="stylesheet" href="css/main.css">
+    <style>
+        /* ...existing code... */
+        .code-bg-text {
+            position: absolute;
+            font-family: 'Fira Mono', 'Consolas', monospace;
+            font-size: 0.85rem;
+            opacity: 0.7;
+            pointer-events: none;
+            z-index: 1;
+            white-space: pre;
+            user-select: none;
+            transition: opacity 0.5s;
+            background: #111;
+            padding: 2px 4px;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px #0008;
+        }
+    </style>
+    <meta name="description" content="Usman Kashif's modern portfolio. Full-stack developer specializing in Laravel, Tailwind, and JavaScript. View projects, skills, and contact.">
+    <meta name="keywords" content="Usman Kashif, Portfolio, Web Developer, Laravel, Tailwind, JavaScript, Projects, Skills">
+    <meta name="author" content="Usman Kashif">
+    <meta property="og:title" content="Usman Kashif Portfolio">
+    <meta property="og:description" content="Showcasing projects, skills, and contact information for Usman Kashif, a modern web developer.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="/assets/profile.PNG">
+    <meta property="og:url" content="https://your-vercel-url.vercel.app/">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+</head>
+<body>
+    <nav role="navigation" aria-label="Main Navigation">
+        <div class="container">
+            <a href="index.html" class="nav-link active" aria-current="page">Usman Kashif</a>
+            <div>
+                <a href="index.html" class="nav-link active" aria-current="page">Home</a>
+                <a href="skills.html" class="nav-link">Skills</a>
+                <a href="projects.html" class="nav-link">Projects</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="services.html" class="nav-link">Services</a>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <div class="hero-card">
+            <img src="assets/WhatsApp Image 2025-06-20 at 18.53.56_1db8ca1c.jpg" alt="Portrait of Usman Kashif, web developer" class="profile-pic" aria-label="Profile picture of Usman Kashif">
+            <h2 class="hero-title">Hi, I'm Usman — I bring your ideas to life with code.<br>Let's talk.</h2>
+            <div class="social-row" aria-label="Social links">
+                <a href="https://wa.me/923116366153" target="_blank" class="social-icon" title="WhatsApp" aria-label="WhatsApp">
+                    <span class="mdi mdi-whatsapp" style="font-size:2rem;color:#25D366" aria-hidden="true"></span>
+                </a>
+                <a href="mailto:usmankashif711@gmail.com" class="social-icon" title="Gmail" aria-label="Gmail">
+                    <span class="mdi mdi-gmail" style="font-size:2rem;color:#EA4335" aria-hidden="true"></span>
+                </a>
+                <a href="https://github.com/usmankashif711" target="_blank" class="social-icon" title="GitHub" aria-label="GitHub">
+                    <span class="mdi mdi-github" style="font-size:2rem;color:#fff" aria-hidden="true"></span>
+                </a>
+                <a href="https://www.linkedin.com/in/usman-kashif-a76425355?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="social-icon" title="LinkedIn" aria-label="LinkedIn">
+                    <span class="mdi mdi-linkedin" style="font-size:2rem;color:#0077B5" aria-hidden="true"></span>
+                </a>
+            </div>
+            <a href="projects.html" class="cta-btn" role="button" aria-label="View My Projects">View My Projects</a>
+        </div>
+    </main>
+    <footer role="contentinfo">
+        &copy; 2025 Usman Kashif. All rights reserved.
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+const codeSnippets = [
+  'const user = { name: "Usman", skills: ["Laravel", "Tailwind", "JS"] };',
+  'function helloWorld() {\n  console.log("Hello, World!");\n}',
+  'let project = "Portfolio";\nproject += " Website";',
+  'fetch("/api/projects").then(r=>r.json())',
+  'if(success) {\n  showMessage("Sent!");\n}',
+  'for(let i=0;i<10;i++){\n  animate(i);\n}',
+  'return <AwesomePortfolio />;',
+  'const skills = ["HTML", "CSS", "JS", "Laravel"]',
+  'useEffect(()=>{\n  setState(true);\n},[])',
+  'export default function Portfolio() {}',
+];
+function randomColor() {
+  const colors = ["#06b6d4","#e11d48","#f472b6","#facc15","#a3e635","#818cf8","#f59e42","#f43f5e"];
+  return colors[Math.floor(Math.random()*colors.length)];
+}
+function showCodeText(e) {
+  const codeBg = document.getElementById('code-bg');
+  const text = document.createElement('div');
+  text.className = 'code-bg-text';
+  text.style.left = e.clientX + 'px';
+  text.style.top = e.clientY + 'px';
+  text.style.color = randomColor();
+  text.style.maxWidth = '120px';
+  text.style.overflow = 'hidden';
+  text.style.textOverflow = 'ellipsis';
+  text.textContent = codeSnippets[Math.floor(Math.random()*codeSnippets.length)];
+  codeBg.appendChild(text);
+  setTimeout(()=>{
+    text.style.opacity = 0;
+    setTimeout(()=>codeBg.removeChild(text), 500);
+  }, 1000);
+}
+document.addEventListener('DOMContentLoaded', function() {
+  if(document.getElementById('code-bg')) {
+    document.getElementById('code-bg').parentElement.addEventListener('mousemove', showCodeText);
+  }
+  AOS.init({ once: true, duration: 800 });
+});
+    </script>
+</body>
+</html>

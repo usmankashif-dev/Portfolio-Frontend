@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Projects</title>
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Showcase of projects by Usman Kashif, full-stack developer. Explore web apps, frontend, backend, and full-stack solutions.">
+  <meta name="keywords" content="Usman Kashif, Projects, Portfolio, Web Developer, Full-Stack, Showcase">
+  <meta name="author" content="Usman Kashif">
+  <!-- Open Graph Tags -->
+  <meta property="og:title" content="Projects - Usman Kashif Portfolio">
+  <meta property="og:description" content="Explore projects by Usman Kashif, a modern web developer. See live demos, code, and project details.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="/assets/profile.PNG">
+  <meta property="og:url" content="https://your-vercel-url.vercel.app/projects">
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <!-- AOS Animation -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="css/main.css">
+  <style>
+    /* Custom CSS for consistent styling */
+    body {
+      background-color: #0a0a0a;
+      color: #ffffff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    a {
+      color: #22d3ee;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    /* Navigation */
+    nav {
+      background-color: rgba(0, 0, 0, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 4px solid transparent;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+    .nav-link {
+      padding: 1rem 2rem;
+      display: inline-block;
+      font-weight: 600;
+      transition: background 0.3s, color 0.3s;
+    }
+    .nav-link:hover {
+      background-color: rgba(6, 182, 212, 0.1);
+      color: #06b6d4;
+    }
+    .nav-link.active {
+      background-color: rgba(6, 182, 212, 0.2);
+      color: #06b6d4;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    /* Hero title */
+    .hero-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      text-align: center;
+      position: relative;
+      display: inline-block;
+    }
+    .hero-title:after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 4px;
+      bottom: -5px;
+      left: 0;
+      background: linear-gradient(to right, transparent, #06b6d4, transparent);
+    }
+    /* Filter */
+    .filter-row {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .filter-btn {
+      padding: 0.75rem 1.25rem;
+      border-radius: 9999px;
+      font-weight: 600;
+      background: #1e293b;
+      color: #22d3ee;
+      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+      box-shadow: 0 2px 8px #0002;
+      outline: none;
+      border: none;
+      cursor: pointer;
+      margin: 0 0.5rem;
+    }
+    .filter-btn:hover, .filter-btn:focus {
+      background: #06b6d4;
+      color: #fff;
+      box-shadow: 0 4px 16px #e11d4840;
+    }
+    .filter-btn.active {
+      background: #06b6d4;
+      color: #fff;
+      box-shadow: 0 4px 16px #e11d4840;
+    }
+    /* Projects grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    /* Project card */
+    .project-card {
+      background: linear-gradient(135deg, #111827 60%, #0f172a 100%);
+      border-radius: 1.25rem;
+      box-shadow: 0 8px 32px #06b6d420, 0 2px 8px #e11d4840;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      border: 1.5px solid #164e63;
+      transition: transform 0.3s, box-shadow 0.3s;
+      animation: fade-in 0.8s;
+    }
+    .project-card:hover {
+      transform: scale(1.045);
+      box-shadow: 0 12px 40px #e11d4840, 0 2px 8px #06b6d440;
+    }
+    .project-card:hover .project-img {
+      transform: scale(1.05) rotate(-1deg);
+      box-shadow: 0 8px 32px #06b6d4cc, 0 2px 8px #e11d4840;
+    }
+    .project-img {
+      transition: transform 0.4s, box-shadow 0.4s;
+    }
+    .project-badge {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      background: #0891b2;
+      color: #fff;
+      margin-bottom: 0.5rem;
+      box-shadow: 0 2px 8px #0002;
+    }
+    @keyframes fade-in {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    /* Modal */
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 50;
+    }
+    .modal-content {
+      background: #1e293b;
+      border-radius: 1rem;
+      padding: 2rem;
+      max-width: 500px;
+      width: 100%;
+      position: relative;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+      animation: slide-in 0.4s forwards;
+    }
+    .modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: transparent;
+      border: none;
+      color: #06b6d4;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+    .modal-close:hover {
+      color: #ff4081;
+    }
+    .modal-img {
+      width: 100%;
+      height: auto;
+      border-radius: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    .modal-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: #06b6d4;
+    }
+    .modal-tech {
+      margin-bottom: 1rem;
+    }
+    .modal-desc {
+      color: #e5e7eb;
+    }
+    @keyframes slide-in {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem 0;
+      background: #111827;
+      color: #ffffff;
+      position: relative;
+      overflow: hidden;
+    }
+    footer:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to right, #06b6d4, #ff4081);
+      z-index: 1;
+      opacity: 0.1;
+    }
+    footer:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to right, #06b6d4, #ff4081);
+      z-index: 1;
+      opacity: 0.1;
+      transform: skewY(-2deg);
+    }
+    footer > * {
+      position: relative;
+      z-index: 2;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation (copy from index.html for consistency) -->
+  <nav>
+    <div class="container">
+      <a href="index.html" class="nav-link">Usman Kashif</a>
+      <div>
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="skills.html" class="nav-link">Skills</a>
+        <a href="projects.html" class="nav-link active">Projects</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="services.html" class="nav-link">Services</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="projects-section">
+      <h2 class="hero-title">My Projects</h2>
+      <div class="filter-row">
+        <button onclick="filterProjects('All')" class="filter-btn" id="filter-all">All</button>
+        <button onclick="filterProjects('Frontend')" class="filter-btn" id="filter-frontend">Frontend</button>
+        <button onclick="filterProjects('Backend')" class="filter-btn" id="filter-backend">Backend</button>
+        <button onclick="filterProjects('Full-Stack')" class="filter-btn" id="filter-fullstack">Full-Stack</button>
+      </div>
+      <div id="project-gallery" class="projects-grid">
+        <!-- Project cards will be rendered here -->
+      </div>
+      <div id="empty-state" class="empty-state">
+        <svg width="60" height="60" fill="none" stroke="#06b6d4" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg>
+        <p>No projects found for this category.</p>
+      </div>
+    </section>
+  </main>
+
+  <div id="modal" class="modal hidden">
+    <div class="modal-content">
+      <button onclick="closeModal()" class="modal-close">&times;</button>
+      <img id="modal-img" src="" alt="Project image" class="modal-img">
+      <h3 id="modal-title" class="modal-title"></h3>
+      <div id="modal-tech" class="modal-tech"></div>
+      <p id="modal-desc" class="modal-desc"></p>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Usman Kashif. All rights reserved.
+  </footer>
+
+  <!-- JS: Project data and filtering logic -->
+  <script>
+    const projects = [
+      {
+        title: 'Factory Management System',
+        description: 'A full-stack web app to manage orders and stock for a factory. Features secure authentication, order tracking, and inventory management.',
+        image: 'assets/Stock_page_Project1.PNG',
+        live: '#',
+        github: 'https://github.com/usmankashif-dev/Project-1',
+        type: 'Full-Stack',
+        tech: ['Laravel', 'SQL', 'PHP', 'JS']
+      },
+      {
+        title: 'Ecommerce Site (Velto)',
+        description: 'A modern, responsive frontend for an ecommerce website. Built for speed, style, and a seamless shopping experience.',
+        image: 'assets/Velto_delivery.PNG',
+        live: '#',
+        github: 'https://github.com/usmankashif-dev/Ecommerce-site-Velto',
+        type: 'Frontend',
+        tech: ['HTML', 'CSS', 'JS', 'Tailwind']
+      },
+    ];
+    function openModal(idx) {
+      const p = projects[idx];
+      document.getElementById('modal-title').textContent = p.title;
+      document.getElementById('modal-desc').textContent = p.description;
+      document.getElementById('modal-img').src = p.image;
+      document.getElementById('modal-tech').innerHTML = p.tech.map(t=>`<span>${t}</span>`).join('');
+      document.getElementById('modal').style.display = 'flex';
+      document.getElementById('modal').classList.remove('hidden');
+    }
+    function closeModal() {
+      document.getElementById('modal').style.display = 'none';
+      document.getElementById('modal').classList.add('hidden');
+    }
+    function renderProjects(type) {
+      let html = '';
+      const filtered = projects.filter(p => type==='All'||p.type===type);
+      filtered.forEach((p, i) => {
+        html += `<div class='project-card' data-aos='fade-up' data-aos-delay='${i*100}'>
+          <span class='project-badge'>${p.type}</span>
+          <img src='${p.image}' alt='Project image' class='project-img'>
+          <h3 class='project-title'>${p.title}</h3>
+          <div class='project-tech'>${p.tech.map(t=>`<span>${t}</span>`).join('')}</div>
+          <p class='project-desc'>${p.description}</p>
+          <div class='project-links'>
+            <a href='${p.github}' target='_blank' class='project-link'>GitHub</a>
+            <button onclick='openModal(${i})' class='project-details-btn'>Details</button>
+          </div>
+        </div>`;
+      });
+      document.getElementById('project-gallery').innerHTML = html;
+      document.getElementById('empty-state').style.display = filtered.length > 0 ? 'none' : 'block';
+      if (window.AOS) AOS.refresh();
+    }
+    function filterProjects(type) {
+      document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+      if(type==='All') document.getElementById('filter-all').classList.add('active');
+      if(type==='Frontend') document.getElementById('filter-frontend').classList.add('active');
+      if(type==='Backend') document.getElementById('filter-backend').classList.add('active');
+      if(type==='Full-Stack') document.getElementById('filter-fullstack').classList.add('active');
+      renderProjects(type);
+    }
+    document.addEventListener('DOMContentLoaded',()=>{
+      filterProjects('All');
+    });
+  </script>
+  <!-- AOS Animation -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init({ once: true });</script>
+</body>
+</html>

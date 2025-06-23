@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - Usman Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+    <style>
+        .service-card {
+            background: linear-gradient(135deg, #111827 60%, #0f172a 100%);
+            border-radius: 1.25rem;
+            box-shadow: 0 8px 32px #06b6d420, 0 2px 8px #e11d4840;
+            padding: 2rem 1.5rem;
+            border: 1.5px solid #164e63;
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: fade-in 0.8s;
+            position: relative;
+            overflow: hidden;
+        }
+        .service-card:hover {
+            transform: scale(1.045);
+            box-shadow: 0 12px 40px #e11d4840, 0 2px 8px #06b6d440;
+        }
+        .neon-btn {
+            display: inline-block;
+            margin-top: 0.5rem;
+            padding: 0.4rem 1.2rem;
+            border-radius: 9999px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            background: linear-gradient(90deg,#06b6d4,#e11d48);
+            color: #fff;
+            box-shadow: 0 0 12px #06b6d4cc, 0 0 24px #e11d4840;
+            letter-spacing: 0.03em;
+            transition: box-shadow 0.2s, transform 0.2s;
+        }
+        .neon-btn:hover {
+            box-shadow: 0 0 24px #e11d48cc, 0 0 32px #06b6d4cc;
+            transform: scale(1.07);
+        }
+        @keyframes fade-in { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        .code-bg-text { position: absolute; font-family: 'Fira Mono', 'Consolas', monospace; font-size: 0.85rem; opacity: 0.7; pointer-events: none; z-index: 1; white-space: pre; user-select: none; transition: opacity 0.5s; background: #111; padding: 2px 4px; border-radius: 4px; box-shadow: 0 2px 8px #0008; }
+    </style>
+    <meta name="description" content="Services offered by Usman Kashif: frontend, backend, full-stack development, API integration, deployment, and optimization.">
+    <meta name="keywords" content="Usman Kashif, Services, Portfolio, Web Developer, API, Deployment">
+    <meta name="author" content="Usman Kashif">
+    <meta property="og:title" content="Services - Usman Kashif Portfolio">
+    <meta property="og:description" content="Discover services by Usman Kashif: web development, backend, frontend, deployment, and more.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="/assets/profile.PNG">
+    <meta property="og:url" content="https://your-vercel-url.vercel.app/services">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body class="bg-gray-950 text-gray-100 min-h-screen flex flex-col">
+    <nav class="bg-black bg-opacity-95 backdrop-blur-lg shadow-lg sticky top-0 z-50 border-b-4 border-gradient nav-creative">
+        <div class="container mx-auto flex justify-between items-center py-4 px-6">
+            <a href="index.html" class="text-2xl font-bold text-cyan-400">Usman Kashif</a>
+            <div class="space-x-6">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="skills.html" class="nav-link">Skills</a>
+                <a href="projects.html" class="nav-link">Projects</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="services.html" class="nav-link active">Services</a>
+            </div>
+        </div>
+    </nav>
+    <main class="flex-1">
+        <div class="min-h-screen flex flex-col justify-center items-center bg-black animate-fade-in relative overflow-hidden">
+            <div id="code-bg" class="pointer-events-none absolute inset-0 z-0"></div>
+            <div class="max-w-4xl w-full px-4 py-16 bg-gradient-to-br from-gray-900 via-gray-950 to-black bg-opacity-90 rounded-2xl shadow-2xl animate-slide-down relative z-10 border border-cyan-900">
+                <h2 class="text-4xl font-extrabold mb-12 text-cyan-400 tracking-tight text-center animate-glow">Services</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="service-card" data-aos="fade-up">
+                        <h3 class="text-2xl font-bold text-cyan-300 mb-2">Frontend Web Development</h3>
+                        <p class="text-gray-200 mb-4">I build responsive, modern UIs that look great on any device. Expect pixel-perfect layouts, smooth animations, and a focus on user experience.</p>
+                        <span class="neon-btn">HTML • CSS • JS • Tailwind</span>
+                    </div>
+                    <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                        <h3 class="text-2xl font-bold text-cyan-300 mb-2">Backend Development</h3>
+                        <p class="text-gray-200 mb-4">From RESTful APIs to complex business logic, I use Laravel and SQL to create secure, scalable, and maintainable backends that power your ideas.</p>
+                        <span class="neon-btn">Laravel • SQL</span>
+                    </div>
+                    <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                        <h3 class="text-2xl font-bold text-cyan-300 mb-2">Full-Stack Web Apps</h3>
+                        <p class="text-gray-200 mb-4">Need the whole package? I deliver end-to-end web apps, handling everything from database to deployment, so you can focus on your vision.</p>
+                        <span class="neon-btn">End-to-End Builds</span>
+                    </div>
+                    <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                        <h3 class="text-2xl font-bold text-cyan-300 mb-2">API Integration</h3>
+                        <p class="text-gray-200 mb-4">I connect your app to the world—integrating third-party APIs for payments, data, authentication, and more. Fast, reliable, and secure.</p>
+                        <span class="neon-btn">REST • OAuth • Webhooks</span>
+                    </div>
+                    <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+                        <h3 class="text-2xl font-bold text-cyan-300 mb-2">Deployment & Optimization</h3>
+                        <p class="text-gray-200 mb-4">I handle deployment, performance tuning, and optimization, making sure your site is fast, secure, and always online. Zero stress, just results.</p>
+                        <span class="neon-btn">VPS • Shared Hosting • CI/CD</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="w-full bg-black bg-opacity-80 text-center py-6 mt-16 text-gray-400">
+        &copy; 2025 Usman Kashif. All rights reserved.
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+const codeSnippets = [
+  'const user = { name: "Usman", skills: ["Laravel", "Tailwind", "JS"] };',
+  'function helloWorld() {\n  console.log("Hello, World!");\n}',
+  'let project = "Portfolio";\nproject += " Website";',
+  'fetch("/api/projects").then(r=>r.json())',
+  'if(success) {\n  showMessage("Sent!");\n}',
+  'for(let i=0;i<10;i++){\n  animate(i);\n}',
+  'return <AwesomePortfolio />;',
+  'const skills = ["HTML", "CSS", "JS", "Laravel"]',
+  'useEffect(()=>{\n  setState(true);\n},[])',
+  'export default function Portfolio() {}',
+];
+function randomColor() {
+  const colors = ["#06b6d4","#e11d48","#f472b6","#facc15","#a3e635","#818cf8","#f59e42","#f43f5e"];
+  return colors[Math.floor(Math.random()*colors.length)];
+}
+function showCodeText(e) {
+  const codeBg = document.getElementById('code-bg');
+  const text = document.createElement('div');
+  text.className = 'code-bg-text';
+  text.style.left = e.clientX + 'px';
+  text.style.top = e.clientY + 'px';
+  text.style.color = randomColor();
+  text.style.maxWidth = '120px';
+  text.style.overflow = 'hidden';
+  text.style.textOverflow = 'ellipsis';
+  text.textContent = codeSnippets[Math.floor(Math.random()*codeSnippets.length)];
+  codeBg.appendChild(text);
+  setTimeout(()=>{
+    text.style.opacity = 0;
+    setTimeout(()=>codeBg.removeChild(text), 500);
+  }, 1000);
+}
+document.addEventListener('DOMContentLoaded',()=>{
+  document.getElementById('code-bg').parentElement.addEventListener('mousemove', showCodeText);
+  AOS.init({ once: true, duration: 800 });
+});
+    </script>
+</body>
+</html>
