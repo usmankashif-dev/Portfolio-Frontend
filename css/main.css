@@ -15,6 +15,11 @@ nav {
   top: 0;
   z-index: 100;
   border-bottom: 3px solid #06b6d4;
+  overflow-x: auto;
+  white-space: nowrap;
+  /* Ensure nav takes full width and allows scrolling */
+  width: 100vw;
+  min-width: 0;
 }
 
 /* Responsive container */
@@ -25,6 +30,8 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: nowrap;
+  min-width: 0;
 }
 
 /* Accessibility improvements */
@@ -75,6 +82,7 @@ nav {
   font-size: 1.1rem;
   padding: 0.25rem 0.5rem;
   border-radius: 6px;
+  white-space: nowrap;
 }
 
 .nav-link:hover, .nav-link.active {
@@ -535,5 +543,40 @@ footer {
   .modal-content { padding: 1rem; }
   .contact-section {
     padding: 1.2rem 0.5rem 1.2rem 0.5rem;
+  }
+  nav {
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 0 0.3rem;
+    width: 100vw;
+    min-width: 0;
+  }
+  .container {
+    flex-wrap: nowrap;
+    gap: 0.2rem;
+    min-width: 0;
+  }
+  .nav-link {
+    font-size: 0.68rem;
+    padding: 0.08rem 0.12rem;
+    margin: 0 0.12rem;
+    min-width: max-content;
+    flex-shrink: 0;
+  }
+  /* If you have a brand/logo in nav, target it here: */
+  .brand, .nav-brand, .navbar-brand {
+    font-size: 0.8rem !important;
+    padding: 0.08rem 0.12rem !important;
+    margin-right: 0.18rem !important;
+    min-width: max-content;
+    flex-shrink: 0;
+  }
+  /* Hide scroll bar but allow scroll (optional, for cleaner look) */
+  nav::-webkit-scrollbar {
+    display: none;
+  }
+  nav {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 }

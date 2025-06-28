@@ -252,23 +252,77 @@
       position: relative;
       z-index: 2;
     }
+    @media (max-width: 600px) {
+      nav {
+        overflow-x: auto;
+        white-space: nowrap;
+        padding: 0 0.3rem;
+        width: 100vw;
+        min-width: 0;
+      }
+      .container {
+        flex-wrap: nowrap;
+        gap: 0.2rem;
+        min-width: 0;
+        max-width: none;
+        width: max-content;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+      }
+      .nav-link {
+        font-size: 0.68rem;
+        padding: 0.08rem 0.12rem;
+        margin: 0 0.04rem;
+        min-width: max-content;
+        flex-shrink: 0;
+      }
+      .brand, .nav-brand, .navbar-brand {
+        font-size: 0.8rem !important;
+        padding: 0.08rem 0.12rem !important;
+        margin-right: 0.06rem !important;
+        min-width: max-content;
+        flex-shrink: 0;
+      }
+      nav::-webkit-scrollbar {
+        display: none;
+      }
+      nav {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+    }
+    .project-link, .project-details-btn {
+      padding: 0.45rem 1.1rem;
+      border-radius: 9999px;
+      font-weight: 600;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.2s;
+      box-shadow: 0 2px 8px #0002;
+      text-decoration: none;
+      display: inline-block;
+      line-height: 1.2;
+    }
   </style>
 </head>
 <body>
   <!-- Navigation (copy from index.html for consistency) -->
-  <nav>
-    <div class="container">
-      <a href="index.html" class="nav-link">Usman Kashif</a>
-      <div>
-        <a href="index.html" class="nav-link">Home</a>
-        <a href="skills.html" class="nav-link">Skills</a>
-        <a href="projects.html" class="nav-link active">Projects</a>
-        <a href="contact.html" class="nav-link">Contact</a>
-        <a href="about.html" class="nav-link">About</a>
-        <a href="services.html" class="nav-link">Services</a>
+  <nav role="navigation" aria-label="Main Navigation">
+      <div class="container">
+        <a href="index.html" class="nav-link active" aria-current="page">Usman Kashif</a>
+        <div>
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="skills.html" class="nav-link">Skills</a>
+          <a href="projects.html" class="nav-link active">Projects</a>
+          <a href="contact.html" class="nav-link">Contact</a>
+          <a href="about.html" class="nav-link">About</a>
+          <a href="services.html" class="nav-link">Services</a>
+        </div>
       </div>
-    </div>
-  </nav>
+    </nav>
 
   <main>
     <section class="projects-section">
@@ -324,6 +378,15 @@
         type: 'Frontend',
         tech: ['HTML', 'CSS', 'JS', 'Tailwind']
       },
+      {
+        title: "Client Portfolio (Eportfolio)",
+        description: "A professional portfolio website for a client, built with HTML, CSS, JS, and Tailwind CSS. Fully responsive and visually engaging.",
+        image: "assets/Eportfolio_index.PNG",
+        live: 'https://usmankashif-dev.github.io/Vedio-Editor-Portfolio/',
+        github: 'https://github.com/usmankashif-dev/Vedio-Editor-Portfolio.git',
+        type: 'Frontend',
+        tech: ['HTML', 'CSS', 'JS', 'Tailwind']
+      },
     ];
     function openModal(idx) {
       const p = projects[idx];
@@ -349,6 +412,7 @@
           <div class='project-tech'>${p.tech.map(t=>`<span>${t}</span>`).join('')}</div>
           <p class='project-desc'>${p.description}</p>
           <div class='project-links'>
+            ${p.live && p.live !== '#' ? `<a href='${p.live}' target='_blank' class='project-link'>Live Preview</a>` : ''}
             <a href='${p.github}' target='_blank' class='project-link'>GitHub</a>
             <button onclick='openModal(${i})' class='project-details-btn'>Details</button>
           </div>
